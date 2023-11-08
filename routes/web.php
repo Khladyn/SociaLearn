@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-
+use App\Models\User;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -39,5 +39,14 @@ Route::get('/courseview', function () {
 Route::get('/enrolledcourses', function () {
     return view('enrolledcourses');
 });
+
+Route::get('/users', function () {
+
+    $users = User::all();
+    return view('users', ['users' => $users]);
+});
+
+// Route::get('/users', 'YourController@showUserList')->name('user-list');
+
 
 require __DIR__.'/auth.php';
