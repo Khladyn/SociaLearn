@@ -1,5 +1,6 @@
-@section('content')
+
 <x-app-layout>
+@section('content')
 <div class="flex max-h-screen max-w-screen bg-white dark:bg-darkgrey overflow-y-hidden">
 
     <div class="w-fit h-screen">
@@ -20,5 +21,6 @@
     </div>
 
 </div>
-</x-app-layout>
 @endsection
+</x-app-layout>
+
