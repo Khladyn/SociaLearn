@@ -91,10 +91,23 @@ Route::put('/edit/discussion', [DiscussionController::class, 'editDiscussion'])-
 Route::delete('/delete/discussion', [DiscussionController::class, 'deleteDiscussion'])->name('delete.discussion');
 
 // Chat
-Route::get('/chats', [ChatController::class, 'displayAll'])->name('view.chat');
-Route::post('/create/chat', [ChatController::class, 'createChat'])->name('create.chat');
-Route::delete('/delete/chat', [ChatController::class, 'deleteChat'])->name('delete.chat');
+// Route::get('/chats', [ChatController::class, 'displayAll'])->name('view.chat');
+// Route::post('/create/chat', [ChatController::class, 'createChat'])->name('create.chat');
+// Route::delete('/delete/chat', [ChatController::class, 'deleteChat'])->name('delete.chat');
+
+// routes/web.php
+
+Auth::routes();
+
+Route::get('/chatsTest', 'App\Http\Controllers\ChatController@index');
+Route::get('messages', 'App\Http\Controllers\ChatController@fetchMessages');
+Route::post('messages', 'App\Http\Controllers\ChatController@sendMessage');
+
 
 // Route::get('/users', 'YourController@showUserList')->name('user-list');
 
 require __DIR__.'/auth.php';
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
